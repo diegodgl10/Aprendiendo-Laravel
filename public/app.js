@@ -1,0 +1,1 @@
+alert('Visitando el blog de Diego');
