@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog de Diego Zamora</title>
     <link rel="stylesheet" href="/app.css">
-    <!--
-    <script src="/app.js"></script>
-    -->
 </head>
 <body>
     <header>
@@ -15,7 +12,7 @@
     </header>
 
     <section>
-        {{ $slot }}
+        {!! $slot; !!}
     </section>
 
     <footer>

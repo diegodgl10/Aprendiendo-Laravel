@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Post;
 
 use Illuminate\Support\Facades\Route;
@@ -19,10 +20,7 @@ use Illuminate\Support\Facades\Route;
  * Redireccion a la pagina inicial.
  */
 Route::get('/', function () {
-    //return view('welcome');
-    //return 'this is my blog';
-
-    $posts = Post::all();
+    $posts = Post::with('category')->get();
     return view('posts', [
         'posts' => $posts
     ]);
@@ -31,9 +29,17 @@ Route::get('/', function () {
 /**
  * Redireccion al post indicado.
  */
-Route::get('posts/{post}', function ($slug) {
-    $post = Post::findOrFail($slug);
+Route::get('posts/{post:slug}', function (Post $post) {
     return view('post', [
         'post' => $post
     ]);
-})->where('post', '[A-z_`-]+');
+});
+
+/**
+ * Redireccion a la categoria indicada.
+ */
+Route::get('categories/{category:slug}', function (Category $category) {
+    return view('posts', [
+        'posts' => $category->posts
+    ]);
+});

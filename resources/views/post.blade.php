@@ -8,6 +8,13 @@
             {!! date("Y-m-d", $post->date); !!}
         </h5>
         
+        <h6>
+            <a href="/categories/{{ $post->category->slug; }}"
+                title="Categoria: {{ $post->category->slug; }}">
+                {!! $post->category->name !!}
+            </a>
+        </h6>
+
         <div>
             {!! $post->body; !!}
         </div>
