@@ -1,4 +1,4 @@
-@aprops(['posts'])
+<!-- @aprops(['posts']) -->
 <x-post-featured-card :post="$posts[0]"/>
 
 @if ($posts->count() > 1)
