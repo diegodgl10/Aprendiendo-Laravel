@@ -32,7 +32,7 @@
                                 </g>
                             </svg>
 
-                            Back to Posts
+                            Regresar a Posts
                         </a>
 
                         <div class="space-x-2">
@@ -47,9 +47,7 @@
                     </h1>
 
                     <div class="space-y-4 lg:text-lg leading-loose">
-                        <p>
-                            {!! $post->body; !!}
-                        </p>
+                        {!! $post->body; !!}
                     </div>
                 </div>
             </article>

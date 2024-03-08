@@ -9,7 +9,7 @@ class CategoryFactory extends Factory
 {
     /**
      * The name od the factory's corresponding model.
-     * 
+     *
      * @var string
      */
     protected $model = Category::class;
@@ -23,7 +23,7 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => $this->faker->word,
-            'slug' => $this->faker->slug,
+            'slug' => $this->faker->slug
         ];
     }
 }
