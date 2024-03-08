@@ -15,6 +15,12 @@ class Post extends Model
     protected $guarded = [];
 
     /**
+     * Evita la realizacion de varias queries solicitando
+     * Category y User en la misma queri. 
+     */
+    protected $with = ['category', 'author'];
+
+    /**
      * Regresa el objeto Category que esta relacionado al post.
      */
     public function category()
@@ -25,8 +31,8 @@ class Post extends Model
     /**
      * Regresa el objeto USer que esta relacionado al post.
      */
-    public function user()
+    public function author()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

@@ -46,3 +46,6 @@ Reiniciar DB `$ php artisan migrate:fresh`
 Poblar con usuarios `$ php artisan db:seed`
 
 `$ php artisan migrate:fresh --seed`
+
+Crear 10 post de la categoria 1
+`>>> App\Models\Post::factory(10)->create(['category_id' => 1])`

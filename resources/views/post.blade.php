@@ -9,8 +9,10 @@
         </h4>
         
         <h5>
-            Por <a href="#">
-                {!! $post->user->name !!}
+            Por
+            <a href="/authors/{{ $post->author->username; }}"
+                title="Autor: {{ $post->author->name; }}">
+                {!! $post->author->name !!}
             </a>
             en
             <a href="/categories/{{ $post->category->slug; }}"

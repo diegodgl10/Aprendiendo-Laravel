@@ -11,6 +11,12 @@
                 {!! date("Y-m-d", $post->date); !!}
             </h4>
             <h5>
+                Por
+                <a href="/authors/{{ $post->author->username; }}"
+                    title="Autor: {{ $post->author->name; }}">
+                    {!! $post->author->name !!}
+                </a>
+                en
                 <a href="/categories/{{ $post->category->slug; }}"
                     title="Categoria: {{ $post->category->slug; }}">
                     {!! $post->category->name !!}
