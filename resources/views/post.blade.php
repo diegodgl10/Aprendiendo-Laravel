@@ -4,19 +4,23 @@
             {!! $post->title; !!}
         </h1>
 
-        <h5>
+        <h4>
             {!! date("Y-m-d", $post->date); !!}
-        </h5>
+        </h4>
         
-        <h6>
+        <h5>
+            Por <a href="#">
+                {!! $post->user->name !!}
+            </a>
+            en
             <a href="/categories/{{ $post->category->slug; }}"
                 title="Categoria: {{ $post->category->slug; }}">
                 {!! $post->category->name !!}
             </a>
-        </h6>
+        </h5>
 
         <div>
-            {!! $post->body; !!}
+            <p>{!! $post->body; !!}</p>
         </div>
     </article>
 

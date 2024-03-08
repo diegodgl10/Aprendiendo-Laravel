@@ -41,4 +41,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Regresa el objeto Post que esta relacionado a el usuario.
+     */
+    public function post()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

@@ -7,17 +7,17 @@
                     {!! $post->title; !!}
                 </a>
             </h1>
-            <h5>
+            <h4>
                 {!! date("Y-m-d", $post->date); !!}
-            </h5>
-            <h6>
+            </h4>
+            <h5>
                 <a href="/categories/{{ $post->category->slug; }}"
                     title="Categoria: {{ $post->category->slug; }}">
                     {!! $post->category->name !!}
                 </a>
-            </h6>
+            </h5>
             <div>
-                {!! $post->excerpt; !!}
+                <p>{!! $post->excerpt; !!}</p>
             </div>
         </article>
     @endforeach

@@ -13,12 +13,20 @@ class Post extends Model
      * Campos necesarios para crear nuevas filas en la base de datos.
      */
     protected $guarded = [];
-    // protected $fillable = ['title', 'excerpt', 'body'];
 
     /**
      * Regresa el objeto Category que esta relacionado al post.
      */
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * Regresa el objeto USer que esta relacionado al post.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

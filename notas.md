@@ -41,3 +41,8 @@ Post::create([
     'category_id' => 2
 ]);
 ```
+
+Reiniciar DB `$ php artisan migrate:fresh`
+Poblar con usuarios `$ php artisan db:seed`
+
+`$ php artisan migrate:fresh --seed`
