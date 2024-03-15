@@ -28,12 +28,3 @@ Route::get('/', [PostController::class, 'index'])->name('home');
  * Redireccion al post indicado.
  */
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
-
-/**
- * Redireccion al autor indicado.
- */
-Route::get('authors/{author:username}', function (User $author) {
-    return view('posts', [
-        'posts' => $author->posts
-    ]);
-});
