@@ -16,9 +16,17 @@ class Post extends Model
 
     /**
      * Evita la realizacion de varias queries solicitando
-     * Category y User en la misma queri. 
+     * Category y User en la misma queri.
      */
     protected $with = ['category', 'author'];
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'] ?? false, fn ($query, $search) =>
+            $query
+                ->where('title', 'like', '%' . $search . '%')
+                ->orWhere('body', 'like', '%' . $search . '%'));
+    }
 
     /**
      * Regresa el objeto Category que esta relacionado al post.
