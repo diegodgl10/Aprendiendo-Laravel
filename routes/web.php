@@ -21,9 +21,13 @@ use Illuminate\Support\Facades\Route;
  * Redireccion a la pagina inicial.
  */
 Route::get('/', function () {
-    $posts = Post::latest()->get();
+    $posts = Post::latest();
+    if (request('search')) {
+        $posts->where('title', 'like', '%' . request('search') . '%')
+        ->orWhere('body', 'like', '%' . request('search') . '%');
+    }
     return view('posts', [
-        'posts' => $posts,
+        'posts' => $posts->get(),
         'categories' => Category::all()
     ]);
 })->name('home');
