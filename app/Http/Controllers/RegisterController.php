@@ -23,6 +23,6 @@ class RegisterController extends Controller
 
         User::create($attributes);
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Tu cuenta ha sido creada');
     }
 }
