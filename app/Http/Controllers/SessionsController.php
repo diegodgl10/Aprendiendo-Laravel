@@ -18,14 +18,14 @@ class SessionsController extends Controller
             'password' => 'required'
         ]);
 
-        if (auth()->attempt($attributes)) {
-            session()->regenerate();
-            return redirect('/')->with('success', 'Bienvenido de nuevo');
+        if (!auth()->attempt($attributes)) {
+            throw ValidationException::withMessages([
+                'email' => 'Los datos no se pudieron verificar'
+            ]);
         }
 
-        throw ValidationException::withMessages([
-            'email' => 'Los datos no se pudieron verificar'
-        ]);
+        session()->regenerate();
+        return redirect('/')->with('success', 'Bienvenido de nuevo');
     }
 
     public function destroy()
